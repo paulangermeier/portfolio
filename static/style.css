@@ -1,0 +1,20 @@
+.nav-bar {
+    list-style: none;
+}
+
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
+.social-bar {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+}
