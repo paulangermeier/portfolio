@@ -37,6 +37,4 @@ def index():
         "SELECT * FROM projects WHERE featured = 1"
     ).fetchall()
 
-    print(rel_projects[0]["title"])
-
     return render_template("index.html", current_year=current_year, rel_projects=rel_projects)
