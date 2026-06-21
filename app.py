@@ -31,4 +31,6 @@ def index():
     # create a db cursor 
     cur = get_db().cursor()
 
+    
+
     return render_template("index.html", current_year=current_year)
