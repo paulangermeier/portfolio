@@ -86,12 +86,31 @@ Paul Angermeier
         </section>
         <section id="projects">
             <h2>Projektübersicht</h2>
+            <div>
+                <ul class="projects-container">
+                    {% for project in rel_projects %}
+                    <li class="project-card">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename=project['image_path']) }}">
+                        </div>
+                        <div class="card-description">
+                            <h3>{{ project['title'] }}</h3>
+                            <p>{{ project['short_description']}}</p>
+                            <p>{{ project['tech_stack'] }}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
             <table>
                 <tr>
                     <th>Projekt</th>
                     <th>Jahr</th>
                     <th>Kurzbeschreibung</th>
                     <th>GitHub</th>
+                    <th>Image</th>
                 </tr>
                 {% for project in rel_projects %}
                 <tr>
@@ -99,6 +118,7 @@ Paul Angermeier
                     <td>{{ project["year"] }}</td>
                     <td>{{ project["short_description"] }}</td>
                     <td>{{ project["github_url"] }}</td>
+                    <td>{{ project["image_path"] }}</td>
                 </tr>
                 {% endfor %}
             </table>

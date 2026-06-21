@@ -9,7 +9,7 @@ projects = [
         "long_description": "Das ist ein Test-Text für das Projekt XY für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
         "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
         "github_url": "www.github.de/projekt-xy",
-        "image_path": "portfolio/static/test.png",
+        "image_path": "images/test.png",
         "featured": 1
     },
     {
@@ -20,7 +20,7 @@ projects = [
         "long_description": "Das ist ein Test-Text für das Projekt Z für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
         "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
         "github_url": "www.github.de/projekt-z",
-        "image_path": "portfolio/static/test.png",
+        "image_path": "images/test.png",
         "featured": 0
     },
     {
@@ -31,7 +31,7 @@ projects = [
         "long_description": "Das ist ein Test-Text für das Projekt A für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
         "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
         "github_url": "www.github.de/projekt-A",
-        "image_path": "portfolio/static/test4.png",
+        "image_path": "images/test4.png",
         "featured": 1
     }
 
