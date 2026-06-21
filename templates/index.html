@@ -86,8 +86,23 @@ Paul Angermeier
         </section>
         <section id="projects">
             <h2>Projektübersicht</h2>
+            <table>
+                <tr>
+                    <th>Projekt</th>
+                    <th>Jahr</th>
+                    <th>Kurzbeschreibung</th>
+                    <th>GitHub</th>
+                </tr>
+                {% for project in rel_projects %}
+                <tr>
+                    <td>{{ project["title"] }}</td>
+                    <td>{{ project["year"] }}</td>
+                    <td>{{ project["short_description"] }}</td>
+                    <td>{{ project["github_url"] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
         </section>
-
         <footer>
             <p>&copy; {{ current_year }} Paul Angermeier</p>
         </footer>

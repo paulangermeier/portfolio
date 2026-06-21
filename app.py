@@ -13,6 +13,7 @@ def get_db():
     if db is None:
         # if no connection is there create db connection
         db = g._database = sqlite3.connect(DATABASE)
+        db.row_factory = sqlite3.Row
     return db
 
 # route/ function to close the db connection
@@ -31,6 +32,11 @@ def index():
     # create a db cursor 
     cur = get_db().cursor()
 
-    
+    # Querying DB to store the relevant projects for index.html as a list of row objects (dicts)
+    rel_projects = cur.execute(
+        "SELECT * FROM projects WHERE featured = 1"
+    ).fetchall()
 
-    return render_template("index.html", current_year=current_year)
+    print(rel_projects[0]["title"])
+
+    return render_template("index.html", current_year=current_year, rel_projects=rel_projects)
