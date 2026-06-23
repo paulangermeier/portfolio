@@ -45,3 +45,16 @@
     gap: 1rem;
     list-style: none;
 }
+
+.tech-tag {
+    background-color: grey;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+}
+
+.tech-wrap {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}

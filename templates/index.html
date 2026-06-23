@@ -88,7 +88,7 @@ Paul Angermeier
             <h2>Projektübersicht</h2>
             <div>
                 <ul class="projects-container">
-                    {% for project in rel_projects %}
+                    {% for project in projects %}
                     <li class="project-card">
                         <div class="card-image">
                             <img src="{{ url_for('static', filename=project['image_path']) }}">
@@ -96,7 +96,11 @@ Paul Angermeier
                         <div class="card-description">
                             <h3>{{ project['title'] }}</h3>
                             <p>{{ project['short_description']}}</p>
-                            <p>{{ project['tech_stack'] }}</p>
+                            <div class="tech-wrap">
+                                {% for tech in project['tech_list'] %}
+                                <span class="tech-tag">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
                         </div>
                     </li>
                     {% endfor %}

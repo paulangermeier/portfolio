@@ -37,4 +37,15 @@ def index():
         "SELECT * FROM projects WHERE featured = 1"
     ).fetchall()
 
-    return render_template("index.html", current_year=current_year, rel_projects=rel_projects)
+    # transform rel_projects row objects into a list of dicts each with a split tech_list
+    # tech_stack is stored as comma separated string in the DB
+    projects = []
+    for project in rel_projects:
+        # row object is read only, convert to dict so tech_list can be added
+        p = dict(project)
+        # list comprehension that creates a new key-value pair in p with separated tech_stack values
+        p["tech_list"] = [t.strip() for t in p["tech_stack"].split(",")]
+        # append the dict stored in p to projects to create a list of dicts
+        projects.append(p)
+
+    return render_template("index.html", current_year=current_year, projects=projects)
