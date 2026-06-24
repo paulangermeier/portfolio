@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, render_template, g
+from flask import Flask, render_template, g, abort
 import sqlite3
 
 app = Flask(__name__)
@@ -49,3 +49,18 @@ def index():
         projects.append(p)
 
     return render_template("index.html", current_year=current_year, projects=projects)
+
+@app.route("/projects/<slug>")
+def project_details(slug):
+    
+    # create db cursor
+    cur = get_db().cursor()
+
+    project = cur.execute(
+        "SELECT * FROM projects WHERE slug = ?", (slug,)
+        ).fetchone()
+
+    if project is None:
+        abort(404)
+
+    return render_template("project_detail.html", project=project)

@@ -94,7 +94,10 @@ Paul Angermeier
                             <img src="{{ url_for('static', filename=project['image_path']) }}">
                         </div>
                         <div class="card-description">
-                            <h3>{{ project['title'] }}</h3>
+                            <h3>
+                                <a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title']
+                                    }}</a>
+                            </h3>
                             <p>{{ project['short_description']}}</p>
                             <div class="tech-wrap">
                                 {% for tech in project['tech_list'] %}
