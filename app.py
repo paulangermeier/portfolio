@@ -64,3 +64,7 @@ def project_details(slug):
         abort(404)
 
     return render_template("project_detail.html", project=project)
+
+@app.route("/projects")
+def projects():
+    return render_template("projects.html")
