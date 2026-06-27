@@ -1,5 +1,5 @@
 .breadcrumb {
-    padding: 0 0.5rem;
+    padding: 5% 0.5rem;
 }
 
 .breadcrumb ol {
@@ -31,6 +31,16 @@
 .card-description {
     padding: 1rem;
     width: 75%;
+}
+
+.detail-content {
+    max-width: 65ch;
+    margin: 0 auto;
+}
+
+.detail-image img {
+    margin: 1rem 0;
+    width: 100%;
 }
 
 .nav-bar {
