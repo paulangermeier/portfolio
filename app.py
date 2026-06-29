@@ -56,14 +56,21 @@ def project_details(slug):
     # create db cursor
     cur = get_db().cursor()
 
+    # query to get data for project from DB
     project = cur.execute(
         "SELECT * FROM projects WHERE slug = ?", (slug,)
         ).fetchone()
 
+    # if project is empty send error message
     if project is None:
         abort(404)
 
-    return render_template("project_detail.html", project=project)
+    # query to get data for content from DB
+    content = cur.execute(
+        "SELECT * FROM sections WHERE project_id = ? ORDER BY position", (project["id"],)
+    ).fetchall()
+
+    return render_template("project_detail.html", project=project, content=content)
 
 @app.route("/projects")
 def projects():
