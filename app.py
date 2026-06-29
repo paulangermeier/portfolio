@@ -14,6 +14,8 @@ def get_db():
         # if no connection is there create db connection
         db = g._database = sqlite3.connect(DATABASE)
         db.row_factory = sqlite3.Row
+        # activate foreign key enforcement since SQLite has it siabled by default
+        db.execute("PRAGMA foreign_keys = ON")
     return db
 
 # route/ function to close the db connection

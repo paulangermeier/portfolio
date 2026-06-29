@@ -96,6 +96,9 @@ contents = [
 # create connection to the database
 con = sqlite3.connect("portfolio.db")
 
+# activate foreign key enforcement since SQLite has it siabled by default
+con.execute("PRAGMA foreign_keys = ON")
+
 # create a database cursor
 cur = con.cursor()
 
