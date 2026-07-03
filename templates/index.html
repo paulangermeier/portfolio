@@ -86,29 +86,27 @@ Paul Angermeier
         </section>
         <section id="projects">
             <h2>Projektübersicht</h2>
-            <div>
-                <ul class="projects-container">
-                    {% for project in projects %}
-                    <li class="project-card">
-                        <div class="card-image">
-                            <img src="{{ url_for('static', filename=project['image_path']) }}">
+            <ul class="projects-container">
+                {% for project in projects %}
+                <li class="project-card">
+                    <div class="card-image">
+                        <img src="{{ url_for('static', filename=project['image_path']) }}" alt="">
+                    </div>
+                    <div class="card-description">
+                        <h3>
+                            <a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title']
+                                }}</a>
+                        </h3>
+                        <p>{{ project['short_description']}}</p>
+                        <div class="tech-wrap">
+                            {% for tech in project['tech_list'] %}
+                            <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
                         </div>
-                        <div class="card-description">
-                            <h3>
-                                <a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title']
-                                    }}</a>
-                            </h3>
-                            <p>{{ project['short_description']}}</p>
-                            <div class="tech-wrap">
-                                {% for tech in project['tech_list'] %}
-                                <span class="tech-tag">{{ tech }}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
         </section>
         <footer>
             <p>&copy; {{ current_year }} Paul Angermeier</p>

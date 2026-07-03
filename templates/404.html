@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-page">
+    <div>
+        <h1>Page not found</h1>
+        <p>Sieht so aus als wäre was falsch gelaufen...</p>
+        <p><a href="{{ url_for('index') }}">Geh zurück zu was schönem...</a></p>
+    </div>
+    <img src="{{ url_for('static', filename='images/ah_shit.jpeg') }}" alt="Ah shit, here we go again.">
+</div>
+
+{% endblock %}

@@ -3,35 +3,27 @@
 {% block content %}
 
 <div class="detail-content">
-    <div>
-        <nav class="breadcrumb">
-            <ol>
-                <li><a href="{{ url_for('index') }}">Paul Angermeier</a></li>
-                <li><a href="{{ url_for('projects') }}">Projektübersicht</a></li>
-                <li><span>{{ project['title'] }}</span></li>
-            </ol>
-        </nav>
+    <nav class="breadcrumb">
+        <ol>
+            <li><a href="{{ url_for('index') }}">Paul Angermeier</a></li>
+            <li><a href="{{ url_for('projects') }}">Projektübersicht</a></li>
+            <li><span>{{ project['title'] }}</span></li>
+        </ol>
+    </nav>
+    <h1>{{ project['title'] }}</h1>
+    <div class="detail-image">
+        <img src="{{ url_for('static', filename=project['image_path']) }}" alt="">
     </div>
-    <div>
-        <div>
-            <h1>{{ project['title'] }}</h1>
-        </div>
-        <div class="detail-image">
-            <img src="{{ url_for('static', filename=project['image_path']) }}">
-        </div>
-        <div>
-            <p>{{ project['long_description'] }}</p>
-        </div>
-        {% for section in content %}
-        <section>
-            <h2>{{ section['heading'] }}</h2>
-            <p>{{ section['content'] }}</p>
-            {% if section['image_path'] %}
-            <img src="{{ url_for('static', filename=section['image_path']) }}">
-            {% endif %}
-        </section>
-        {% endfor %}
-    </div>
+    <p>{{ project['long_description'] }}</p>
+    {% for section in content %}
+    <section>
+        <h2>{{ section['heading'] }}</h2>
+        <p>{{ section['content'] }}</p>
+        {% if section['image_path'] %}
+        <img src="{{ url_for('static', filename=section['image_path']) }}" alt="">
+        {% endif %}
+    </section>
+    {% endfor %}
 </div>
 
 {% endblock %}
