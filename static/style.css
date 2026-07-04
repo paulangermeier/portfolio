@@ -75,6 +75,25 @@
     padding: 0;
 }
 
+.project-overview {
+    max-width: 150ch;
+    margin: 0 auto;
+}
+
+.project-overview table {
+    border-collapse: collapse;
+}
+
+.project-overview tr {
+    border-bottom: 1pt solid currentColor;
+}
+
+.project-overview td,
+th {
+    text-align: left;
+    padding: 10px;
+}
+
 .social-icon {
     width: 24px;
     height: 24px;

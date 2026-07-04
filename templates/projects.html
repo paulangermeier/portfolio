@@ -1,12 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-<nav class="breadcrumb">
-    <ol>
-        <li><a href="{{ url_for('index') }}">Paul Angermeier</a></li>
-        <li><span>Projektübersicht</span></li>
-    </ol>
-</nav>
+<div class="project-overview">
+    <nav class="breadcrumb">
+        <ol>
+            <li><a href="{{ url_for('index') }}">Paul Angermeier</a></li>
+            <li><span>Projektübersicht</span></li>
+        </ol>
+    </nav>
+    <h1>Projektübersicht</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Jahr</th>
+                <th>Projekt</th>
+                <th>Kurzbeschreibung</th>
+                <th>Tech Stack</th>
+                <th>GitHub</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}
+            <tr>
+                <td>{{ project['year'] }}</td>
+                <td><a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title'] }}</a></td>
+                <td>{{ project['short_description'] }}</td>
+                <td>
+                    {% for tech in project['tech_list']%}
+                    <span class="tech-tag">{{ tech }}</span>
+                    {% endfor %}
+                </td>
+                <td><a href="{{ project['github_url'] }}">GitHub Repo</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}

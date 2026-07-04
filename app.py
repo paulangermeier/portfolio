@@ -18,6 +18,13 @@ def get_db():
         db.execute("PRAGMA foreign_keys = ON")
     return db
 
+# tech is stored as comma separated string in the DB
+def sep_tech(tech_stack):
+    tech_list = []
+    for tech in tech_stack.split(","):
+        tech_list.append(tech.strip())
+    return tech_list
+
 # route/ function to close the db connection
 @app.teardown_appcontext
 def close_connection(exception):
@@ -45,8 +52,7 @@ def index():
     for project in rel_projects:
         # row object is read only, convert to dict so tech_list can be added
         p = dict(project)
-        # list comprehension that creates a new key-value pair in p with separated tech_stack values
-        p["tech_list"] = [t.strip() for t in p["tech_stack"].split(",")]
+        p["tech_list"] = sep_tech(project["tech_stack"])
         # append the dict stored in p to projects to create a list of dicts
         projects.append(p)
 
@@ -76,7 +82,25 @@ def project_details(slug):
 
 @app.route("/projects")
 def projects():
-    return render_template("projects.html")
+
+    # create db cursor
+    cur = get_db().cursor()
+
+    # query to get data for projects from DB
+    all_projects = cur.execute(
+        "SELECT * FROM projects ORDER BY year DESC"
+    ).fetchall()
+
+    projects = []
+
+    # transform all_projects row objects into a list of dicts each with a split tech_list
+    # tech_stack is stored as comma separated string in the DB
+    for project in all_projects: 
+        p = dict(project)
+        p["tech_list"] = sep_tech(project["tech_stack"])
+        projects.append(p)
+
+    return render_template("projects.html", projects=projects)
 
 @app.errorhandler(404)
 def page_not_found(e):
