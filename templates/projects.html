@@ -24,11 +24,13 @@
             <tr>
                 <td>{{ project['year'] }}</td>
                 <td><a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title'] }}</a></td>
-                <td>{{ project['short_description'] }}</td>
-                <td>
-                    {% for tech in project['tech_list']%}
-                    <span class="tech-tag">{{ tech }}</span>
-                    {% endfor %}
+                <td class="project-shortdes">{{ project['short_description'] }}</td>
+                <td class="project-techstack">
+                    <div class="tech-wrap">
+                        {% for tech in project['tech_list']%}
+                        <span class="tech-tag">{{ tech }}</span>
+                        {% endfor %}
+                    </div>
                 </td>
                 <td><a href="{{ project['github_url'] }}">GitHub Repo</a></td>
             </tr>

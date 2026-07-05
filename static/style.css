@@ -109,11 +109,11 @@
 }
 
 .project-shortdes {
-    width: 35ch;
+    width: 30%;
 }
 
 .project-techstack {
-    width: 40ch;
+    width: 30%;
 }
 
 .social-icon {
@@ -139,18 +139,24 @@
 
 .tech-wrap {
     display: flex;
-    gap: 1em;
+    gap: .5em;
     flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
+    .project-card {
+        flex-direction: column-reverse;
+        gap: 5px;
+    }
+
     .page-grid {
         grid-template-columns: 1fr;
         gap: 32px;
     }
 
-    .project-card {
-        flex-direction: column-reverse;
-        gap: 5;
+    .project-shortdes,
+    .project-techstack {
+        display: none;
     }
+
 }
