@@ -78,11 +78,13 @@
 .project-card {
     display: flex;
     gap: 10px;
+    margin: 0;
 }
 
 .projects-container {
     list-style-type: none;
     padding: 0;
+    margin: 0;
 }
 
 .project-overview {
@@ -124,6 +126,8 @@
     display: flex;
     gap: 1rem;
     list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 .tech-tag {
@@ -143,5 +147,10 @@
     .page-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+
+    .project-card {
+        flex-direction: column-reverse;
+        gap: 5;
     }
 }
