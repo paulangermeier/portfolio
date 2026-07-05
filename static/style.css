@@ -138,3 +138,10 @@
     gap: 1em;
     flex-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+    .page-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
