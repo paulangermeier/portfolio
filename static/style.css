@@ -4,6 +4,35 @@
     box-sizing: border-box;
 }
 
+:root {
+    --color-background: rgb(0, 0, 0);
+    --color-accent: rgb(237, 237, 237);
+    --color-surface: rgb(34, 34, 34);
+    --color-text-primary: rgb(237, 237, 237);
+    --color-text-secondary: rgb(161, 161, 161);
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--color-text-primary);
+}
+
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 200ms ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .breadcrumb {
     padding: 5% 0.5rem;
 }
@@ -131,10 +160,12 @@
 }
 
 .tech-tag {
-    background-color: grey;
-    color: white;
-    padding: 2px 5px;
-    border-radius: 10px;
+    background-color: var(--color-surface);
+    color: var(--color-text-secondary);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-family: monospace;
 }
 
 .tech-wrap {
