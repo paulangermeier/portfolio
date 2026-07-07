@@ -8,6 +8,7 @@
     --color-background: rgb(0, 0, 0);
     --color-accent: rgb(237, 237, 237);
     --color-surface: rgb(34, 34, 34);
+    --color-surface-hover: rgb(20, 20, 20);
     --color-text-primary: rgb(237, 237, 237);
     --color-text-secondary: rgb(161, 161, 161);
     --font-text: 'IBM Plex Sans', sans-serif;
@@ -98,11 +99,13 @@ a:hover {
     object-fit: cover;
     width: 100%;
     height: 100px;
+    border-radius: 5px;
 }
 
 .card-description {
     padding: 1rem;
     width: 75%;
+    color: var(--color-text-secondary)
 }
 
 .detail-content {
@@ -142,9 +145,20 @@ a:hover {
 }
 
 .project-card {
+    border-radius: 10px;
+    margin: 0;
+    transition: background 200ms ease;
+}
+
+.project-card:hover {
+    background: var(--color-surface-hover);
+}
+
+.project-card a {
     display: flex;
     gap: 10px;
-    margin: 0;
+    text-decoration: none;
+    color: inherit;
 }
 
 .projects-container {
@@ -213,8 +227,11 @@ a:hover {
 
 @media (max-width: 768px) {
     .project-card {
-        flex-direction: column-reverse;
         gap: 5px;
+    }
+
+    .project-card a {
+        flex-direction: column-reverse;
     }
 
     .page-grid {

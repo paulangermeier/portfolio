@@ -89,21 +89,20 @@ Paul Angermeier
             <ul class="projects-container">
                 {% for project in projects %}
                 <li class="project-card">
-                    <div class="card-image">
-                        <img src="{{ url_for('static', filename=project['image_path']) }}" alt="">
-                    </div>
-                    <div class="card-description">
-                        <h3>
-                            <a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title']
-                                }}</a>
-                        </h3>
-                        <p>{{ project['short_description']}}</p>
-                        <div class="tech-wrap">
-                            {% for tech in project['tech_list'] %}
-                            <span class="tech-tag">{{ tech }}</span>
-                            {% endfor %}
+                    <a href="{{ url_for('project_details', slug=project['slug']) }}">
+                        <div class="card-image">
+                            <img src="{{ url_for('static', filename=project['image_path']) }}" alt="">
                         </div>
-                    </div>
+                        <div class="card-description">
+                            <h3> {{ project['title'] }} </h3>
+                            <p>{{ project['short_description']}}</p>
+                            <div class="tech-wrap">
+                                {% for tech in project['tech_list'] %}
+                                <span class="tech-tag">{{ tech }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </a>
                 </li>
                 {% endfor %}
             </ul>
