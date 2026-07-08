@@ -13,6 +13,9 @@
     --color-text-secondary: rgb(161, 161, 161);
     --font-text: 'IBM Plex Sans', sans-serif;
     --font-accent: 'IBM Plex Mono', monospace;
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.5rem;
+    --font-size-h3: 1.17rem;
 }
 
 /* ibm-plex-mono-regular - latin */
@@ -59,6 +62,18 @@ h2,
 h3 {
     color: var(--color-text-primary);
     font-family: var(--font-accent);
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
 }
 
 a {
