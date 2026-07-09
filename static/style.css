@@ -79,12 +79,9 @@ h3 {
 a {
     color: var(--color-accent);
     text-decoration: none;
-    transition: color 200ms ease;
 }
 
-a:hover {
-    text-decoration: underline;
-}
+/* css classes */
 
 .breadcrumb {
     padding: 5% 0.5rem;
@@ -143,6 +140,27 @@ a:hover {
 .error-page img {
     padding: 1rem;
     max-width: 350px;
+}
+
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    transform-origin: left;
+    width: 100%;
+    transform: scaleX(0);
+    transition: transform 200ms ease;
+    background-color: var(--color-accent);
+}
+
+.link-underline:hover::after {
+    transform: scaleX(1);
 }
 
 .nav-bar {
@@ -225,6 +243,15 @@ a:hover {
     margin: 0;
 }
 
+.social-bar a {
+    color: var(--color-text-secondary);
+    transition: color 200ms ease;
+}
+
+.social-bar a:hover {
+    color: var(--color-text-primary);
+}
+
 .tech-tag {
     background-color: var(--color-surface);
     color: var(--color-text-secondary);
@@ -239,6 +266,8 @@ a:hover {
     gap: .5em;
     flex-wrap: wrap;
 }
+
+/* media query for responsiveness */
 
 @media (max-width: 768px) {
     .project-card {

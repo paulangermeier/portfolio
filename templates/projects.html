@@ -4,7 +4,7 @@
 <div class="project-overview">
     <nav class="breadcrumb">
         <ol>
-            <li><a href="{{ url_for('index') }}">Paul Angermeier</a></li>
+            <li><a class="link-underline" href="{{ url_for('index') }}">Paul Angermeier</a></li>
             <li><span>Projektübersicht</span></li>
         </ol>
     </nav>
@@ -23,7 +23,8 @@
             {% for project in projects %}
             <tr>
                 <td>{{ project['year'] }}</td>
-                <td><a href="{{ url_for('project_details', slug=project['slug']) }}">{{ project['title'] }}</a></td>
+                <td><a class="link-underline" href="{{ url_for('project_details', slug=project['slug']) }}">{{
+                        project['title'] }}</a></td>
                 <td class="project-shortdes">{{ project['short_description'] }}</td>
                 <td class="project-techstack">
                     <div class="tech-wrap">
@@ -32,7 +33,7 @@
                         {% endfor %}
                     </div>
                 </td>
-                <td><a href="{{ project['github_url'] }}">GitHub Repo</a></td>
+                <td><a class="link-underline" href="{{ project['github_url'] }}">GitHub Repo</a></td>
             </tr>
             {% endfor %}
         </tbody>
