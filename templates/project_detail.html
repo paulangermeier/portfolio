@@ -14,11 +14,11 @@
     <div class="detail-image">
         <img src="{{ url_for('static', filename=project['image_path']) }}" alt="">
     </div>
-    <p>{{ project['long_description'] }}</p>
+    <p>{{ project['long_description'] | safe }}</p>
     {% for section in content %}
     <section>
         <h2>{{ section['heading'] }}</h2>
-        <p>{{ section['content'] }}</p>
+        <p>{{ section['content'] | safe }}</p>
         {% if section['image_path'] %}
         <img src="{{ url_for('static', filename=section['image_path']) }}" alt="">
         {% endif %}

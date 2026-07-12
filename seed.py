@@ -2,95 +2,76 @@ import sqlite3
 
 projects = [
     {
-        "slug": "project-xy",
-        "title": "Projekt XY",
+        "slug": "portfolio",
+        "title": "Portfolio Website",
         "year": 2026,
-        "short_description": "Das ist ein Test-Text für das Projekt XY für die short Description Zelle zum Testen meines seed.py Skripts.",
-        "long_description": "Das ist ein Test-Text für das Projekt XY für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
-        "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
-        "github_url": "www.github.de/projekt-xy",
-        "image_path": "images/test.png",
-        "featured": 1
-    },
-    {
-        "slug": "project-z",
-        "title": "Projekt Z",
-        "year": 2025,
-        "short_description": "Das ist ein Test-Text für das Projekt Z für die short Description Zelle zum Testen meines seed.py Skripts.",
-        "long_description": "Das ist ein Test-Text für das Projekt Z für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
-        "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
-        "github_url": "www.github.de/projekt-z",
-        "image_path": "images/test.png",
-        "featured": 0
-    },
-    {
-        "slug": "project-a",
-        "title": "Projekt A",
-        "year": 2024,
-        "short_description": "Das ist ein Test-Text für das Projekt A für die short Description Zelle zum Testen meines seed.py Skripts.",
-        "long_description": "Das ist ein Test-Text für das Projekt A für die long Description Zelle der etwas länger ist als die short Description Zelle meines seed.py Skripts.",
-        "tech_stack": "Python, Flask, Jinja, SQL, HTML, CSS",
-        "github_url": "www.github.de/projekt-A",
-        "image_path": "images/test4.png",
+        "short_description": "Datenbankgetriebene Portfolio-Plattform, gebaut, um meine Software-Projekte zu präsentieren und mit ihnen zu wachsen. Entstanden als CS50-Abschlussprojekt.",
+        "long_description": """Diese Website ist mein Abschlussprojekt für Harvards 
+        <a href="https://cs50.harvard.edu/x/" class="link-underline" target="_blank" rel="noopener">CS50</a> und zugleich die Plattform, 
+        auf der meine künftigen Software-Projekte präsentiert werden sollen. Sie ist vollständig selbst entwickelt: 
+        <a href="https://flask.palletsprojects.com/en/stable/" class="link-underline" target="_blank" rel="noopener">Flask</a> und 
+        <a href="https://sqlite.org/" class="link-underline" target="_blank" rel="noopener">SQLite</a> im Backend, 
+        <a href="https://jinja.palletsprojects.com/en/stable/" class="link-underline" target="_blank" rel="noopener">Jinja2</a>-Templates, handgeschriebenes 
+        CSS und HTML im Frontend. Alle Inhalte kommen aus der Datenbank, sodass die Seite mit jedem neuen Projekt wächst, ohne dass sich an der Struktur etwas ändert.""",
+        "tech_stack": "Python, Flask, SQLite, Jinja2, HTML, CSS",
+        "github_url": "https://github.com/paulangermeier/portfolio",
+        "image_path": "images/portfolio-screenshot.webp",
         "featured": 1
     }
 ]
 
 contents = [
     {
-        "slug": "project-xy",
+        "slug": "portfolio",
         "position": 1,
-        "heading": "Test-Überschrift",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "heading": "Motivation",
+        "content": """Diese Website ist als Abschlussprojekt des Harvard-Kurses CS50 „Introduction to Computer Science" entstanden und markiert den Startpunkt meiner Reise als Software-Entwickler.  
+        Der Wunsch, in die Software-Entwicklung einzusteigen, begleitet mich schon seit meiner Studienzeit und so war CS50 der erste und entscheidende Schritt. 
+        Schnell war klar, dass ich einen Ort brauche, an dem ich meine Projekte öffentlich zeigen und erklären kann: sei es zur Akquise weiterer Projekte oder um bei Recruitern Aufmerksamkeit zu wecken. 
+        Das langfristige Ziel ist ein eigenes, gebootstrapptes Software-Produkt — und diese Seite dokumentiert den Weg dorthin.""",
+        "image_path": None
     },
     {
-        "slug": "project-xy",
+        "slug": "portfolio",
         "position": 2,
-        "heading": "Test-Überschrift 2",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "heading": "Architektur & Tech Stack",
+        "content": """<p>Das Backend basiert auf Flask. 
+        Ich habe bewusst ein Micro-Framework statt eines Full-Stack-Frameworks wie Django gewählt, um jede Schicht selbst aufzubauen und zu verstehen: Routing, Datenbankzugriff, Templating. 
+        Ein Framework, das diese Arbeit versteckt, hätte dem Lernziel widersprochen.</p>
+        <p>Als Datenbank kommt SQLite zum Einsatz, angebunden über Pythons natives sqlite3-Modul. 
+        Für eine Portfolio-Seite mit reinem Lese-Traffic ist eine dateibasierte Datenbank die passende Wahl. 
+        Kein Server, keine Konfiguration, keine Abhängigkeiten. Alle Queries sind parameterisiert, um SQL-Injection strukturell auszuschließen.</p>
+        <p>Das Datenmodell besteht aus zwei Tabellen (wie aus der untenstehenden Abbildung ersichtlich ist): projects hält die einheitlichen Metadaten jedes Projekts, sections die frei strukturierbaren Inhalte der Detailseiten. 
+        Die beiden Tabellen sind durch eine 1:n-Beziehung verknüpft. 
+        Ein Projekt kann damit beliebig viele Abschnitte haben oder gar keine. 
+        Neue Projekte und neue Inhalte entstehen so allein durch neue Datenbankeinträge, ohne dass sich an Templates oder Struktur etwas ändert.</p>""",
+        "image_path": "images/er-diagram.svg"
     },
     {
-        "slug": "project-xy",
+        "slug": "portfolio",
         "position": 3,
-        "heading": "Test-Überschrift 3",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "heading": "Designsystem",
+        "content": """<p>Das Design folgt einem einfachen Prinzip: Der Inhalt steht im Vordergrund, alles andere tritt zurück. 
+        Eine monochromatische Palette auf dunklem Grund, großzügiger Whitespace, und eine klare visuelle Hierarchie ersetzen dekorative Elemente. 
+        Jedes Gestaltungsmittel muss eine Funktion erfüllen und was keine hat, fliegt raus.</p>
+        <p>Technisch ist das Designsystem über CSS Custom Properties aufgebaut: Farben, Schriften und Abstände sind als zentrale Tokens definiert, auf die alle Komponenten zugreifen. 
+        Eine Änderung an einer Stelle wirkt konsistent auf der gesamten Seite, was demselben Prinzip wie beim Datenmodell entspricht, nur auf Gestaltungsebene.</p>
+        <p>Bei der Typografie kombiniere ich IBM Plex Sans für Fließtext und IBM Plex Mono für Überschriften und technische Elemente. 
+        Beide Schriften sind aus Datenschutzgründen und für volle Kontrolle über das Ladeverhalten self-hosted eingebunden. 
+        Interaktive Elemente geben dezentes Feedback durch unterstreichende Hover-Effekte, die nicht ablenken.</p>""",
+        "image_path": None
     },
     {
-        "slug": "project-z",
-        "position": 1,
-        "heading": "Überschrift-Test",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-        "slug": "project-z",
-        "position": 2,
-        "heading": "Überschrift-Test 2",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-        "slug": "project-z",
-        "position": 3,
-        "heading": "Überschrift-Test 3",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-        "slug": "project-a",
-        "position": 1,
-        "heading": "Überschrift 1",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-        "slug": "project-a",
-        "position": 2,
-        "heading": "Überschrift 2",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
-    {
-        "slug": "project-a",
-        "position": 3,
-        "heading": "Überschrift 2",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    },
+        "slug": "portfolio",
+        "position": 4,
+        "heading": "Ausblick",
+        "content": """<p>Diese Seite ist bewusst als Anfang gebaut, nicht als Abschluss. 
+        Das Datenmodell ist darauf ausgelegt, mit jedem neuen Projekt zu wachsen, und genau das ist der Plan: Jedes Software-Projekt auf dem Weg zum eigenen Produkt wird hier dokumentiert.</p>
+        <p>Konkret geplant sind für diese Website als nächste Schritte ein geschützter Admin-Bereich, über den ich Inhalte direkt pflegen kann statt über Seed-Skripte, sowie kleinere Verbesserungen bei Barrierefreiheit und Bildverwaltung.</p>
+        <p>Größere Ideen und nächste Projekte lasse ich zum jetzigen Zeitpunkt bewusst offen.</p>
+        <p>Das Ziel dahinter bleibt dasselbe wie am Anfang beschrieben. Ein eigenes, gebootstrapptes Software-Produkt. Diese Seite wird zeigen, wie weit der Weg dorthin schon ist.</p>""",
+        "image_path": None  
+    }
 ]
 
 # create connection to the database
@@ -142,9 +123,11 @@ for section in contents:
                 project_id,
                 position,
                 heading,
-                content
+                content,
+                image_path
                 )
                 VALUES (
+                ?,
                 ?,
                 ?,
                 ?,
@@ -153,7 +136,8 @@ for section in contents:
                 (slug_id[section["slug"]],
                 section["position"],
                 section["heading"],
-                section["content"])
+                section["content"],
+                section["image_path"])
                 )
 
 # commit the transaction to save changes
