@@ -124,6 +124,7 @@ a {
 .detail-content {
     max-width: 65ch;
     margin: 0 auto;
+    padding-bottom: 4rem;
 }
 
 .detail-image img {
@@ -228,6 +229,13 @@ a {
 
 .project-techstack {
     width: 30%;
+}
+
+.section-image {
+    display: block;
+    margin-inline: auto;
+    max-width: 80%;
+    height: auto;
 }
 
 .social-icon {
