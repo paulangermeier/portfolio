@@ -104,19 +104,20 @@ a {
 
 .card-image {
     padding: 1rem;
-    width: 25%;
+    width: 35%;
 }
 
 .card-image img {
-    object-fit: cover;
+    object-fit: contain;
     width: 100%;
-    height: 100px;
+    height: 100%;
     border-radius: 5px;
+    display: block;
 }
 
 .card-description {
     padding: 1rem;
-    width: 75%;
+    width: 65%;
     color: var(--color-text-secondary)
 }
 
