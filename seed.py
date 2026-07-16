@@ -80,17 +80,19 @@ con = sqlite3.connect("portfolio.db")
 # activate foreign key enforcement since SQLite has it siabled by default
 con.execute("PRAGMA foreign_keys = ON")
 
+# create schema for db
+with open("schema.sql") as f:
+    schema = f.read()
+
+con.executescript(schema)
+
 # create a database cursor
 cur = con.cursor()
-
-# wipe existing rows to keep this script idempotent
-cur.execute("DELETE FROM sections")
-cur.execute("DELETE FROM projects")
 
 # create dict to store ids from DB with slug from project to correctly map contents
 slug_id = {}
 
-#execute SQL Query to INSERT projects while storing ids of projects from DB with slugs from projects
+# execute SQL Query to INSERT projects while storing ids of projects from DB with slugs from projects
 for project in projects:
     cur.execute("""INSERT INTO projects (
                 slug, 
@@ -143,7 +145,7 @@ for section in contents:
 # commit the transaction to save changes
 con.commit()
 
-#verify that the rows were inserted by printing rows to the terminal
+# verify that the rows were inserted by printing rows to the terminal
 for row in cur.execute("SELECT * FROM projects INNER JOIN sections ON projects.id=sections.project_id ORDER BY projects.id"):
     print(row)
 
