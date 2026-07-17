@@ -1,5 +1,7 @@
 # Portfolio Website
 
+**Live**: https://paulangermeier.de
+
 A database-driven portfolio platform built with Flask, designed to present my software projects and to grow with each new one. Created as my final project for Harvards CS50x.
 
 ![Screenshot of the portfolio homepage](static/images/portfolio-screenshot.webp)
@@ -90,6 +92,9 @@ flask run
 ```
 
 The site is then available at `http://127.0.0.1:5000`.
+
+The site is deployed on [Render](https://render.com) and live at [paulangermeier.de](https://paulangermeier.de). Every push to `main` triggers an automatic redeployment, including a fresh database seed.
+
 ## Known Limitations & Roadmap
 
 Some decisions were deliberately scoped out of the MVP:
